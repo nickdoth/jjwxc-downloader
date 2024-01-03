@@ -11,8 +11,9 @@ chrome_options.add_argument('--headless')  # Run Chrome in headless mode
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 
-svc = webdriver.ChromeService(executable_path='./chromedriver')
-driver = webdriver.Chrome(service=svc, options=chrome_options)
+# svc = webdriver.ChromeService(executable_path='./chromedriver')
+# driver = webdriver.Chrome(service=svc, options=chrome_options)
+driver = webdriver.Remote(command_executor="http://localhost:4444", options=chrome_options)
 
 
 def jj_Download(chapters_url, chapters_title, novel_name):
